@@ -1,69 +1,64 @@
-/* Create a program that displays rock,paper,scissors randomly
-using an array =[rock,paper,scissor] works.
-create strings that lead to rock, paper, scissors being displayed randomly.
-*/
-
-function getComputerChoice (){
-    let compOptions = Math.floor(Math.random()*3)
-    switch (compOptions){
-        case 0:
-        console.log("rock")
-        break;
-        case 1:
-        console.log("paper")
-        break;
-        case 2:
-        console.log("scissors")
-        break;         
-    }
-}
-
-//getComputerChoice ()
-
-function getHumanChoice (){
-    let displayHum = prompt("Lets play Rock, Paper, Scissors!");
-         console.log(displayHum);
+function getComputerChoice() {
+  const compChoice = Math.floor(Math.random()* 3);
     
+  switch (compChoice) {
+    case 0: "rock";
+    console.log("rock");
+    break;
+    case 1: "paper";
+    console.log("paper");
+    break;
+    case 2: "scissors";
+    console.log("scissors");
+    break;
+  }
+
 }
-//getHumanChoice ()
+
+//getComputerChoice()
+
+function getHumanChoice() {
+  let humChoice = prompt ("Lets Play Rock, Paper, Scissors!");
+  //console.log(humChoice);
+}
+
+//getHumanChoice()
 
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound(humanChoice,computerChoice){
-    for (let i = 1; i < 5; i++);
-    if (humanChoice == "rock" && computerChoice == "scissors") {
-     if (humanChoice == "scissors" && computerChoice == "paper") {
-      if (humanChoice == "paper" && computerChoice == "rock") {
-        return "Player Wins!";
-      } 
-     }
-    } else {
-        return "Computer Wins!";
-    }
-    
-    // Below may work with other variables in place.
+function playRound(humanChoice, computerChoice) {
+  
 
-    /*switch (humanChoice,computerChoice){
-    case play1: humanChoice == "rock" && computerChoice == "scissors"
-    console.log("Player Wins!")
-    break;
-    case play2: humanChoice == "scissors" && computerChoice == "paper"
-    console.log("Player Wins!")
-    break;
-    case play3: humanChoice == "paper" && computerChoice == "rock"
-    console.log("Player Wins!")
-    break;
-
-    default:
-    console.log("Computer Wins!")
-    break;
-  }*/
-
-   
+  if (humanChoice ==`rock` && computerChoice == `rock`||
+     humanChoice ==`scissors` && computerChoice == `scissors`||
+     humanChoice ==`paper` && computerChoice == `paper`)
+  {console.log("It's a Tie!");}
+  else if ( computerChoice == `scissors` && humanChoice == `paper`||
+     computerChoice == `rock` && humanChoice == `scissors`||
+     computerChoice == `paper` && humanChoice == `rock`)
+  {console.log(`You win!`); humanScore++}
+  else 
+ {console.log(`You lose...`);computerScore++}
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+
+function playGame() {
+  playRound();
+  for (let i = 1; i < 5; i++);
+
+  if (humanScore > computerScore){
+    console.log("You won the game!!!")
+  } 
+  else if (humanScore < computerScore){
+    console.log("Oh No! You lost the game...")
+  }
+  else{
+    console.log("it's a tie!")
+  }
+  
+}
