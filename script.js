@@ -1,18 +1,19 @@
 /**
  * getComputerChoice returns 3 random choices = rock,paper,scissors.
  */
+// Trouble finding a solution for initial console log.
+console.log("Ignore inital round. first round comes after. :)")
 const choices = ["rock","paper","scissors"];
 
 function getComputerChoice() {  
     const compChoices = choices[Math.floor(Math.random() * choices.length)];
     console.log(compChoices);
     return compChoices;
-   
 }
 
 getComputerChoice();
 
-
+// getHumanChoice displays a prompt on webpage and prints input to console.
 function getHumanChoice() {
     let display = prompt ("Lets play Rock, Paper, Scissors!".toLowerCase());
     
@@ -30,10 +31,11 @@ function getHumanChoice() {
 
 getHumanChoice()
 
+// initial scores
 let humanScore = 0;
 let computerScore = 0;
 
-
+// playRound holds all info for single round of game + score incrementation.
 function playRound(humanChoice,computerChoice) {
     humanChoice = getHumanChoice();
     computerChoice = getComputerChoice();
@@ -58,7 +60,8 @@ function playRound(humanChoice,computerChoice) {
 //playRound();
 
  
-
+// playGame uses simple for loop to playRound 5X. also prints simple string
+// to seperate each round.
 function playGame(humanChoice,computerChoice){
     for (let i = 0; i < 5; i++){
         playRound();
@@ -70,6 +73,7 @@ function playGame(humanChoice,computerChoice){
 }
 playGame()
 
+// prints final result of game.
 if (humanScore > computerScore){console.log("Player Wins The Game!");}
 else if (computerScore > humanScore){console.log("Computer wins the game..");}
 else if (computerScore === humanScore){console.log("Its a Tie!");}
